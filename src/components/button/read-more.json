@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_button_read_mores",
+  "info": {
+    "displayName": "Read More",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "read_more_button_title": {
+      "type": "string",
+      "required": true
+    },
+    "read_more_button_link_type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "external",
+        "internal"
+      ]
+    },
+    "read_more_button_link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

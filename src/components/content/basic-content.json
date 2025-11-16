@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_basic_contents",
+  "info": {
+    "displayName": "basic_content"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

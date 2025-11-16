@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_content_sections",
+  "info": {
+    "displayName": "content_section"
+  },
+  "options": {},
+  "attributes": {
+    "section_title": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "repeatable_content": {
+      "type": "component",
+      "component": "content.basic-content",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
