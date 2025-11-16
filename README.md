@@ -32,6 +32,82 @@ npm run build
 yarn build
 ```
 
+## 🗄️ Database Setup (PostgreSQL)
+
+This project uses PostgreSQL as the database. To import the initial database:
+
+### Prerequisites
+
+1. Ensure PostgreSQL is installed and running on your system
+2. Create a new database for the project (if it doesn't exist)
+
+### Import Database
+
+1. **Create the database** (if needed):
+
+   ```bash
+   createdb -U postgres your_database_name
+   ```
+
+   Or using `psql`:
+
+   ```bash
+   psql -U postgres
+   CREATE DATABASE your_database_name;
+   \q
+   ```
+
+2. **Import the database dump**:
+
+   ```bash
+   psql -U postgres -d your_database_name -f starting_db.sql
+   ```
+
+   Or if you need to specify a host and port:
+
+   ```bash
+   psql -h localhost -p 5432 -U postgres -d your_database_name -f starting_db.sql
+   ```
+
+3. **Configure environment variables**:
+
+   Make sure your `.env` file includes the following PostgreSQL configuration:
+
+   ```env
+   DATABASE_CLIENT=postgres
+   DATABASE_HOST=localhost
+   DATABASE_PORT=5432
+   DATABASE_NAME=your_database_name
+   DATABASE_USERNAME=postgres
+   DATABASE_PASSWORD=your_password
+   DATABASE_SSL=false
+   ```
+
+   Or use a connection string:
+
+   ```env
+   DATABASE_CLIENT=postgres
+   DATABASE_URL=postgresql://postgres:your_password@localhost:5432/your_database_name
+   ```
+
+4. **Verify the import**:
+
+   Connect to your database to verify the tables were created:
+
+   ```bash
+   psql -U postgres -d your_database_name
+   \dt
+   \q
+   ```
+
+### Alternative: Using pg_restore (for custom format dumps)
+
+If you have a custom format dump file:
+
+```bash
+pg_restore -U postgres -d your_database_name -c starting_db.dump
+```
+
 ## ⚙️ Deployment
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
